@@ -1,12 +1,10 @@
-# Your Name Here
+# Jordan Westman
 # UWYO COSC 1010
 # Submission Date
-# Lab XX
-# Lab Section: 
+# Lab 10
+# Lab Section: 18
 # Sources, people worked with, help given to: 
-# your
-# comments
-# here
+
 
 #import modules you will need 
 
@@ -32,7 +30,27 @@ def get_hash(to_hash):
 
 # You will need to include a try-except-catch block in your code.
 # - The reading of files needs to occur in the try blocks.
+lines= []
+path= Path("rockyou.txt")
+try:
+    contents= path.read_text()
+except:
+    print("File not found")
 
+else:
+    lines= contents.splitlines()
+
+
+path2= Path("hash")
+try:
+    hashcontents= path2.read_text()
+except:
+    print("File not found")
+
+for i in lines:
+    if get_hash(i)==hashcontents:
+        print(f"Password found:{i}")
+        break
 
 # - Read in the value stored within `hash`.
 #   - You must use a try and except block.
